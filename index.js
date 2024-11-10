@@ -14,6 +14,10 @@ const mongoURI = process.env.MONGO_URI;
 const emailsRouter = require("./routes/emails_route");
 app.use("/", emailsRouter);
 
+// fixtures middleware
+const fixturesRouter = require("./routes/fixtures_route");
+app.use("/admin", fixturesRouter);
+
 mongoose
   .connect(mongoURI)
   .then(() => {
