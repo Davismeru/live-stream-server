@@ -1,8 +1,8 @@
 const fixtures_model = require("../models/fixtures_model");
 
 const fixturesController = async (req, res) => {
-  const { league, match } = req.body;
-  const { index, fixture, time, channel, status } = match;
+  const { league, index, fixture, time, channel, status } = req.body;
+  console.log(league, index, fixture, time, channel, status);
 
   // Check if the match with the given index exists in the matches array
   const existingFixture = await fixtures_model.findOne({
