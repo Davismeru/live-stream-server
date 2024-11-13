@@ -18,6 +18,10 @@ app.use("/", emailsRouter);
 const fixturesRouter = require("./routes/fixtures_route");
 app.use("/admin", fixturesRouter);
 
+// leagues middleware
+const leaguesRouter = require("./routes/leagues_route");
+app.use("/admin", leaguesRouter);
+
 mongoose
   .connect(mongoURI)
   .then(() => {
