@@ -22,6 +22,14 @@ app.use("/admin", fixturesRouter);
 const leaguesRouter = require("./routes/leagues_route");
 app.use("/admin", leaguesRouter);
 
+// admin middleware
+const adminRouter = require("./routes/admin_route");
+app.use("/admin", adminRouter);
+
+// blogs middleware
+const blogsRouter = require("./routes/blogs_route");
+app.use("/", blogsRouter);
+
 mongoose
   .connect(mongoURI)
   .then(() => {

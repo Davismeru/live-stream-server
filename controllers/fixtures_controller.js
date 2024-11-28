@@ -42,12 +42,25 @@ const fixturesController = async (req, res) => {
   res.send("Game updated successfully");
 };
 
-const fetchFixturesCOntroller = async (req, res) => {
+const fetchFixturesController = async (req, res) => {
   const fixturesData = await fixtures_model.find({}, { _id: 0 });
   res.send(fixturesData);
 };
 
+const deleteFixturesController = async (req, res) => {
+  const { index, league } = req.body;
+
+  // Remove the match with the specified index from the 'matches' array
+  await fixtures_model.updateOne(
+    { league: league }, // Find the fixture by league
+    { $pull: { matches: { index: index } } } // Pull the match object where the index matches
+  );
+
+  res.send("Match deleted successfully");
+};
+
 module.exports = {
   fixturesController,
-  fetchFixturesCOntroller,
+  fetchFixturesController,
+  deleteFixturesController,
 };
