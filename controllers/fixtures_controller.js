@@ -44,7 +44,7 @@ const fixturesController = async (req, res) => {
 
 const fetchFixturesController = async (req, res) => {
   const fixturesData = await fixtures_model.find({}, { _id: 0 });
-  res.send(fixturesData);
+  res.json(fixturesData);
 };
 
 const deleteFixturesController = async (req, res) => {
