@@ -1,7 +1,16 @@
 const fixtures_model = require("../models/fixtures_model");
 
 const fixturesController = async (req, res) => {
-  const { league, index, fixture, time, channel, status } = req.body;
+  const {
+    league,
+    index,
+    fixture,
+    time,
+    channel,
+    status,
+    channel_2,
+    sub_channel,
+  } = req.body;
   console.log(league, index, fixture, time, channel, status);
 
   // Check if the match with the given index exists in the matches array
@@ -23,6 +32,8 @@ const fixturesController = async (req, res) => {
           "matches.$.time": time,
           "matches.$.channel": channel,
           "matches.$.status": status,
+          "matches.$.channel_2": channel_2,
+          "matches.$.sub_channel": sub_channel,
         },
       }
     );
